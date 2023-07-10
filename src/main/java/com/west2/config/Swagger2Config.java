@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * swagger文档配置
+ * 文档访问地址：http://{host}:{port}/swagger-ui.html
  * @date 2022/11/25
  */
 @EnableSwagger2
