@@ -12,8 +12,8 @@
 本项目仅作为模板尽可能的少引入依赖，具体使用时请根据实际情况引入依赖
 
 * SpringBoot 2.3.4.RELEASE
-* Mybatis 3.0.2
-* Mybatis-Plus 3.5.3.1
+* Mybatis 2.2.2
+* Mybatis-Plus 3.5.1
 * Lombok
 * Swagger 2.7.0
 * FastJson 1.2.73
