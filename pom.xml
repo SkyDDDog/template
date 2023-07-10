@@ -15,7 +15,13 @@
     <description>template</description>
     <properties>
         <java.version>8</java.version>
+        <mybatis.version>3.0.2</mybatis.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <swagger.version>2.7.0</swagger.version>
+        <fastjson.version>2.0.32</fastjson.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
         <skipTests>true</skipTests>
+
     </properties>
     <dependencies>
         <!--springWeb-->
@@ -46,56 +52,53 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.2.2</version>
+            <version>${mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        <!--hutool-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.7.12</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
         <!--JSON-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.69</version>
+            <version>${fastjson.version}</version>
         </dependency>
         <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
+            <version>${swagger.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.7.0</version>
+            <version>${swagger.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-        <!--注解校验参数-->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.1.7.Final</version>
-        </dependency>
+<!--hutool-->
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-all</artifactId>-->
+<!--            <version>5.7.12</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash;注解校验参数&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>javax.validation</groupId>-->
+<!--            <artifactId>validation-api</artifactId>-->
+<!--            <version>2.0.1.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate.validator</groupId>-->
+<!--            <artifactId>hibernate-validator</artifactId>-->
+<!--            <version>6.1.7.Final</version>-->
+<!--        </dependency>-->
 
 
 
