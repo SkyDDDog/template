@@ -1,6 +1,6 @@
 server:
-  port: 12346
-
+  port: 12345
+apiPath: api
 spring:
   datasource:
     host: mysql
