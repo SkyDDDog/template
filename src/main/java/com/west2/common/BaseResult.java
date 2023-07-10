@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @desc 返回结果基础类
+ *  返回结果基础类
  * @date 2022/11/26
  */
 @Slf4j
@@ -57,16 +57,47 @@ public class BaseResult implements Serializable {
     )
     private LocalDateTime returnDateTime;
 
+    /**
+     * 无参构造函数
+     */
+    public BaseResult() {
+    }
+
+    /**
+     * 构造函数(一般使用无参构造并init)
+     * @param msgCode   状态码
+     * @param errMsg    状态信息
+     * @param receiptDateTime  接收请求时间
+     * @param returnDateTime    返回时间
+     */
+    public BaseResult(int msgCode, String errMsg, LocalDateTime receiptDateTime, LocalDateTime returnDateTime) {
+        this.msgCode = msgCode;
+        this.errMsg = errMsg;
+        this.receiptDateTime = receiptDateTime;
+        this.returnDateTime = returnDateTime;
+    }
+
+    /**
+     * result是否成功
+     * @return boolean
+     */
     public boolean isSuccess() {
         return this.msgCode >= 0;
     }
 
-
+    /**
+     * 初始化BaseResult，并设置接收请求时间
+     * @return BaseResult  返回this以实现链式调用
+     */
     public BaseResult init() {
         this.receiptDateTime = LocalDateTime.now();
         return this;
     }
 
+    /**
+     * 默认请求成功实现
+     * @return  BaseResult 返回this以实现链式调用
+     */
     public BaseResult success() {
         int msgCode = 0;
         this.msgCode = msgCode;
@@ -74,6 +105,11 @@ public class BaseResult implements Serializable {
         return this;
     }
 
+    /**
+     * 根据错误码进行失败结果返回
+     * @param msgCode   错误码
+     * @return  BaseResult  返回this以实现链式调用
+     */
     public BaseResult fail(int msgCode) {
         this.msgCode = msgCode;
         this.errMsg = MsgCodeUtil.getErrMsg(msgCode);
@@ -81,6 +117,12 @@ public class BaseResult implements Serializable {
         return this;
     }
 
+    /**
+     * 自定义失败结果返回
+     * @param msgCode   错误码
+     * @param errMsg    错误信息
+     * @return  BaseResult  返回this以实现链式调用
+     */
     public BaseResult failCustom(int msgCode, String errMsg) {
         this.msgCode = msgCode;
         if (StringUtils.isBlank(errMsg)) {
@@ -98,6 +140,11 @@ public class BaseResult implements Serializable {
         return this;
     }
 
+    /**
+     * 自定义失败结果返回(默认错误码为-10000)
+     * @param errMsg    错误信息
+     * @return  BaseResult  返回this以实现链式调用
+     */
     public BaseResult failCustom(String errMsg) {
         this.msgCode = -10000;
         this.errMsg = errMsg;
@@ -105,6 +152,11 @@ public class BaseResult implements Serializable {
         return this;
     }
 
+    /**
+     * 参数校验失败结果返回
+     * @param fieldErrors   参数校验失败信息
+     * @return  BaseResult  返回this以实现链式调用
+     */
     public BaseResult failIllegalArgument(List<FieldError> fieldErrors) {
         this.fail(-10016);
         StringBuilder errorStringBuilder = (new StringBuilder(this.errMsg)).append("\n");
@@ -120,28 +172,22 @@ public class BaseResult implements Serializable {
         return this;
     }
 
+    /**
+     * 结束result配置，设置返回时间
+     * @return  BaseResult  返回this以实现链式调用
+     */
     public BaseResult end() {
         this.returnDateTime = LocalDateTime.now();
         return this;
     }
 
-    public BaseResult() {
-    }
-
-    public BaseResult(int msgCode, String errMsg, LocalDateTime receiptDateTime, LocalDateTime returnDateTime) {
-        this.msgCode = msgCode;
-        this.errMsg = errMsg;
-        this.receiptDateTime = receiptDateTime;
-        this.returnDateTime = returnDateTime;
-    }
-
+    /**
+     * 错误码设置
+     * @param msgCode   错误码
+     */
     public void error(int msgCode) {
         this.msgCode = msgCode;
         this.errMsg = MsgCodeUtil.getErrMsg(msgCode);
-    }
-
-    public static long getSerialVersionUID() {
-        return 1L;
     }
 
     public int getMsgCode() {

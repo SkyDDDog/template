@@ -8,6 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * 通用的增删改查服务类
+ * @param <M> mapper
+ * @param <T> 实体类
+ * @author 天狗
+ * @date 2023/07/11
+ */
 @Slf4j
 public abstract class CrudService<M extends BaseMapper<T>,T extends DataEntity<T>> {
 
@@ -17,15 +24,30 @@ public abstract class CrudService<M extends BaseMapper<T>,T extends DataEntity<T
     public CrudService() {
     }
 
+    /**
+     * 根据id查询
+     * @param id    id
+     * @return  实体
+     */
     public T get(String id) {
         return this.mapper.selectById(id);
     }
 
+    /**
+     * 查询列表
+     * @param wrapper   查询条件
+     * @return  列表
+     */
     public List<T> findList(QueryWrapper<T> wrapper) {
         wrapper.eq("del_flag",0);
         return this.mapper.selectList(wrapper);
     }
 
+    /**
+     * 保存(insert/update)
+     * @param entity    实体
+     * @return  影响行数
+     */
     public int save(T entity) {
         int result = 0;
         log.info(entity.isNewRecord()+"");
@@ -39,6 +61,11 @@ public abstract class CrudService<M extends BaseMapper<T>,T extends DataEntity<T
         return result;
     }
 
+    /**
+     * 逻辑删除
+     * @param entity    实体
+     * @return  影响行数
+     */
     public int delete(T entity) {
         int result = 0;
         if (entity != null) {

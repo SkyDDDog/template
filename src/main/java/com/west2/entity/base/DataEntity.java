@@ -8,7 +8,8 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 
 /**
- * @desc 数据库基本对象映射类
+ * 数据库基本对象映射类
+ * @author 天狗
  * @date 2022/11/26
  */
 @Accessors(chain = true)

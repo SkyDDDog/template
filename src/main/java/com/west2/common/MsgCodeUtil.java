@@ -1,11 +1,11 @@
 package com.west2.common;
 
-import com.google.common.collect.Maps;
-
+import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @desc 返回值状态码
+ * 返回值状态码
+ * @author 天狗
  * @date 2022/11/26
  */
 public class MsgCodeUtil {
@@ -37,13 +37,8 @@ public class MsgCodeUtil {
     public static final int MSC_DATA_DRODATA_ERROR = -10029;
     public static final int MSC_DATA_ADDDATA_ERROR = -10030;
     public static final int MSC_DATA_UPDATADATA_ERROR = -10031;
-    // 微信接口错误码
-    public static final int MSC_CODE_INVALID = 40029;
-    public static final int MSC_API_LIMITED = 45011;
-    public static final int MSC_CODE_BLOCKED = 40226;
-    public static final int MSC_SYSTEM_ERROR = -1;
 
-    protected static Map<Integer, String> map = Maps.newHashMap();
+    protected static Map<Integer, String> map = new HashMap<>();
 
     public MsgCodeUtil() {
     }
@@ -79,11 +74,6 @@ public class MsgCodeUtil {
         map.put(-10029, "删除失败");
         map.put(-10030, "新增失败");
         map.put(-10031, "修改失败");
-        // 微信小程序错误信息
-        map.put(40029, "js_code无效");
-        map.put(45011, "API 调用太频繁，请稍候再试");
-        map.put(40226, "高风险等级用户，小程序登录拦截 。");
-        map.put(-1, "系统繁忙，此时请开发者稍候再试");
 
     }
 }

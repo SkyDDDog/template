@@ -11,7 +11,8 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import java.io.Serializable;
 
 /**
- * @desc 基本实体类
+ * 数据库基本实体类
+ * @author 天狗
  * @date 2022/11/26
  */
 @ApiModel(

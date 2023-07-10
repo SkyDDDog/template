@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @desc: 配置Mybatis-plus
+ * 配置Mybatis-plus拦截器
+ * @author 天狗
  * @date 2022/11/25
  */
 @Configuration

@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * @desc swagger文档配置
+ * swagger文档配置
  * @date 2022/11/25
  */
 @EnableSwagger2
@@ -42,9 +42,9 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //标题
-                .title("思锐科技小程序服务端接口")
+                .title("后端接口")
 //                .termsOfServiceUrl("127.0.0.1:9091/druid/login.html")
-                .contact(new Contact("西二在线", "https://www.w2fzu.com/", "2061423633@qq.com"))
+                .contact(new Contact("Your Team Name", "Your team's contact url", "362664609@qq.com"))
                 .build();
     }
 
