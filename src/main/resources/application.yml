@@ -1,9 +1,13 @@
+server:
+  port: 12346
 
 spring:
   datasource:
     host: mysql
+    port: 3306
+    database: template
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/template?serverTimezone=GMT%2b8
+    url: jdbc:mysql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.database}?serverTimezone=GMT%2b8
     username: root
     password: 9738faq
 
@@ -20,5 +24,3 @@ mybatis-plus:
     db-config:
       logic-delete-value: 1
       logic-not-delete-value: 0
-server:
-  port: 12346
